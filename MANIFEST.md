@@ -1,19 +1,19 @@
 # MANIFEST
 
-Commander's Intent v0.2.1 (2026-09-28). 51 files. Byte sizes measured before push.
+Commander's Intent v0.2.2 (2026-09-28). 51 files. Byte sizes measured before push.
 
 | File | Purpose | Bytes |
 |---|---|---:|
 | `.github/CODEOWNERS` | Code owners: every path requests review from the repo owner (SECURITY.md section 8) | 85 |
-| `CHANGELOG.md` | Fabric changelog | 8872 |
-| `COMMANDERS-INTENT.md` | Start here. The Commander's Intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth | 29428 |
+| `CHANGELOG.md` | Fabric changelog | 9290 |
+| `COMMANDERS-INTENT.md` | Start here. The Commander's Intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth | 29452 |
 | `FABRIC.md` | The root of the fabric (COMMANDERS-INTENT.md), how sister templates fit together, update-in-unison process, leak scan | 4603 |
 | `FIRST-RUN.md` | Exact first-run script: intent interview first, then memory and mental model, alignment, security gates, setup, skills, routines, proofs | 16189 |
 | `INSTALL.md` | Human install overview: what to have ready, time, what the bot never asks for | 2448 |
-| `LICENSE` | MIT license | 1075 |
+| `LICENSE` | MIT license | 1073 |
 | `MANIFEST.md` | This file | 7796 |
 | `OPEN-QUESTIONS.md` | Open [UNKNOWN] items and how to check them on your fleet | 10354 |
-| `README.md` | Landing page: start here (Commander's Intent), install, doctrine, architecture, repo map, related templates | 11720 |
+| `README.md` | Landing page: start here (Commander's Intent), install, doctrine, architecture, repo map, related templates | 11745 |
 | `SECURITY.md` | Threat model, secrets, prompt injection, supply chain, cloud coding agents, data handling, incident response, vulnerability reporting | 21280 |
 | `SETUP.md` | Full manual reference: placeholder table and install steps | 19919 |
 | `examples/commanders-intent-example.md` | Fictional filled Commander's Intent, example only | 7034 |
@@ -56,4 +56,4 @@ Commander's Intent v0.2.1 (2026-09-28). 51 files. Byte sizes measured before pus
 | `social/x-article-v0.2.md` | v0.2 release article and reply variants | 6026 |
 | `tools/hindsight/hs.py` | Standard-library Hindsight REST helper (bank from HINDSIGHT_BANK; recall, reflect, retain, mental model list/get/create/patch/refresh) | 3976 |
 
-Total files: 51. Total bytes: 490271.
+Total files: 51. Total bytes: 490736.

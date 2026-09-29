@@ -4,7 +4,7 @@
 **Status:** `{{INTENT_STATUS}}` (TEMPLATE until the interview is done; DRAFT during playback; APPROVED once the Owner says so)
 **Owner:** `{{OWNER_NAME}}`  **Chief of Staff:** `{{COS_NAME}}`  **Approved on:** `{{APPROVAL_DATE}}`
 **Canonical copy:** `{{INTENT_CANONICAL_LOCATION}}` (the Owner's governance repo, or the persistent home copy until a repo exists)
-**Doctrine lineage:** U.S. Marine Corps. Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". Sources: end of section 2.
+**Doctrine lineage:** U.S. Marine Corps. Doctrine developed with @pixelrainbownft's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". Sources: end of section 2.
 
 This file is the root of the fleet. Every agent, on every host and in every cloud session, reads it before acting and checks its work against it. When anything else conflicts with this file, this file wins, except the Owner's hard gates, which always win.
 
@@ -58,7 +58,7 @@ The promise of this file: **every agent can repeat the intent back, can keep mov
 
 ### Doctrine sources (U.S. Marine Corps)
 
-This doctrine is U.S. Marine Corps lineage. Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". Every publication below was checked on 2026-09-28; all are public and approved for release.
+This doctrine is U.S. Marine Corps lineage. Doctrine developed with @pixelrainbownft's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". Every publication below was checked on 2026-09-28; all are public and approved for release.
 
 | Source | Used for |
 |---|---|
