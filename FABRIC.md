@@ -2,6 +2,10 @@
 
 The "fabric" is the set of Grok Bot templates that share one doctrine. Commander's Intent is the command layer; the sister templates cover specific parts of the stack. They are versioned together so a bot installed from any of them follows the same rules.
 
+## The root of the fabric
+
+[`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) is the root of the fabric. Every template in the set, and every agent a template installs, answers to the installing Owner's approved Commander's Intent, created by interview from that scaffold. Its fixed doctrine (Parts I and III: the five hard rules, disciplined initiative, drift prevention, chain of command, quota discipline) is shared by every template. Its Part II is each Owner's own. [`SECURITY.md`](SECURITY.md) is part of the intent by reference and applies across the fabric. Everything else (skills, routines, fleet specs, sister templates) sits under those two files.
+
 ## How the templates fit together
 
 | Layer | Template | Role in the fabric |
@@ -14,7 +18,9 @@ The "fabric" is the set of Grok Bot templates that share one doctrine. Commander
 
 Shared across all of them:
 
+- The Owner's approved `COMMANDERS-INTENT.md` as the root document, created by interview, versioned, and mirrored into the `commanders-intent` mental model.
 - The five hard rules and the 11 standing rules (see `README.md`).
+- The security gates and cloud coding agent rules in `SECURITY.md`.
 - One Hindsight memory bank per fleet; Git is the source of truth.
 - HTTP :8642 is the only fleet talk path to Hermes.
 - Computer-update survival for anything installed on the Grok Bot computer.
@@ -24,6 +30,7 @@ Shared across all of them:
 
 - **Fabric version** = the version at the top of this repo's `CHANGELOG.md`.
 - **Major** (1.0.0): a rule is added, removed, or changes meaning. Every sister template must be updated.
+- **Intent versions are separate.** The template version (this changelog) versions the scaffold and fixed doctrine. Each Owner's own intent has its own version (`v1.0`, `v1.1`, ...) and only that Owner amends it (see `COMMANDERS-INTENT.md` section 20).
 - **Minor** (0.2.0): new skill, routine, or capability. Update sister templates that reference it.
 - **Patch** (0.1.1): wording, fixes, and clarifications. Sister templates update only if they carry the changed text.
 

@@ -7,6 +7,7 @@ Usage:
   hs.py reflect "question" [--tags canon]
   hs.py retain "fact" --context "why/where" [--tags a,b] [--doc ID] [--by AGENT]
   hs.py mm list | hs.py mm get <id>
+  hs.py mm create <body.json> | hs.py mm patch <id> <body.json> | hs.py mm refresh <id>
   hs.py kb tree | hs.py kb search "query" | hs.py kb page <id>
   hs.py op <operation_id>
 """
@@ -43,6 +44,9 @@ elif a.cmd=="retain":
 elif a.cmd=="mm":
     if a.args[0]=="list":
         for m in call("GET","/mental-models",None,B).get("items",[]): print(f"- {m['id']}: {m.get('name')} (refreshed {m.get('last_refreshed_at','')[:16]})")
+    elif a.args[0]=="create": print(json.dumps(call("POST","/mental-models",json.load(open(a.args[1])),B)))
+    elif a.args[0]=="patch": print(json.dumps(call("PATCH","/mental-models/"+a.args[1],json.load(open(a.args[2])),B))[:2000])
+    elif a.args[0]=="refresh": print(json.dumps(call("POST","/mental-models/"+a.args[1]+"/refresh",None,B)))
     else: print(call("GET","/mental-models/"+a.args[1],None,B).get("content"))
 elif a.cmd=="kb":
     if a.args[0]=="tree": print(json.dumps(call("GET","/knowledge-base/tree",None,B),indent=1)[:6000])

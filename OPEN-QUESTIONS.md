@@ -28,3 +28,16 @@ Tracking unknown facts that could change this template's behavior at import time
 |---|---|---|---|---|---|
 | Q-POST-1 | Exact Hermes Agent HTTP endpoints used in examples (`GET /health`, `POST /v1/runs` with `{"input": ...}`, `GET /v1/runs/{run_id}`) — does the private-net `ask` connector use the same endpoints, and is `/health` the correct health path? [UNKNOWN] | Copy-paste examples must work on first run. The drafting model invented a `/v1/ask` endpoint that was replaced with `/v1/runs` during review. | Check official Hermes Agent API server docs (https://hermes-agent.nousresearch.com/docs/) and test each call once. | Security/redaction reviewer | Yes |
 | Q-POST-2 | Several drafted files are long (the largest are roughly 20–24 KB). Does the template format accept files of this size? [UNKNOWN] | Could force splitting or trimming files. | Resolve together with the share-format size-limit question above. | Assembler | Yes |
+
+## Added in v0.2.0
+| ID | Question | Why it matters | How to resolve | Owner role | Blocking release? |
+|---|---|---|---|---|---|
+| Q-V02-1 | Do the new `hs.py mm create`, `mm patch`, and `mm refresh` subcommands work against a live bank? Checked against the published Hindsight OpenAPI schema on 2026-09-28, not run live from this repo. [INFERRED] | FIRST-RUN step 2 depends on them. | First installer runs step 2 and reports the output; fix the helper if any call fails. | Chief of Staff | No |
+| Q-V02-2 | Does tag scoping (`all_strict` when a model has tags) keep old intent versions out of the `commanders-intent` model in practice? Schema says yes [VERIFIED: OpenAPI, 2026-09-28]; live behavior [UNKNOWN]. | Old intent text leaking into the model would be drift. | After the first amendment, read the model and confirm only the new version appears. | Chief of Staff | No |
+| Q-V02-3 | Devin network egress controls and branch restrictions. [UNKNOWN] | `SECURITY.md` section 9 lists them as unknown. | Check current Devin documentation before granting repo access. | Owner | No |
+| Q-V02-4 | GitHub private vulnerability reporting is off on this repo as of 2026-09-28. [VERIFIED via API] | The reporting link in `SECURITY.md` works only when it is on. | Repo owner turns it on in Settings, Security section. | Owner | No |
+| Q-V02-5 | Branch protection, CODEOWNERS, and signed commits on this repo's `main`. Not enabled as of 2026-09-28. [VERIFIED via API] | Installed bots pull doctrine from `main` (`SECURITY.md` section 8). | Owner decides; enabling is a gated action. | Owner | No |
+
+### Resolved in v0.2.0
+- Q-011: mental-model custom `id`, `trigger.mode` (`full` or `delta`), and `trigger.refresh_cron` (UTC, mutually exclusive with `refresh_after_consolidation`) are present in the live Hindsight OpenAPI schema. [VERIFIED 2026-09-28]
+- Q-005: the "COS role and fleet self-healing" section is now carried, scrubbed and placeholdered, in `COMMANDERS-INTENT.md` section 14 and the `commanders-intent` skill.

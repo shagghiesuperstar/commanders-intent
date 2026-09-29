@@ -23,10 +23,10 @@ Hosts in scope: `<HOST_1>`, `<HOST_2>`, `<HOST_3>`, `<HOST_4>` (extend with `<HO
 
 SSH is **not** an ask path. The only ask path to a Hermes agent is Hermes native HTTP on port `8642` over `<PRIVATE_NET_NAME>` (Bearer key loaded from local env). [INFERRED — Hermes Agent docs]
 
-### Per-host checks (fingerprints only — never print secrets)
+### Per-host checks (non-secret checks only; never print secrets)
 
 1. **`bws` binary:** `~/.hermes/bin/bws` and/or `~/.hermes/profiles/<profile>/bin/bws`. The binary may be **absent from login PATH** — use the absolute path. Record version.
-2. **`BWS_ACCESS_TOKEN`:** present in `~/.hermes/.env` and the active profile `.env`. Report only `set` and length.
+2. **`BWS_ACCESS_TOKEN`:** present in `~/.hermes/.env` and the active profile `.env`. Report only present or not present (non-empty). Do not report length.
 3. **Hermes config:** a `bitwarden:` / Secrets Manager block with `access_token_env: BWS_ACCESS_TOKEN` and `project_id` referencing `<SECRETS_PROJECT>`.
 4. **Pull prove:** `bws secret list`, then fetch `API_SERVER_KEY` and compute a **sha12 fingerprint only**. Compare to disk `API_SERVER_KEY=` in `.env` and the active profile `.env` — all three fingerprints **must match**.
 

@@ -29,9 +29,9 @@ You are the sole instigator. After every step, end by asking: *what else is sile
 
 ## Step 1 — Write Commander's Intent in Git
 
-**Action.** On `<WORKHORSE_HOST>`, in `<GOVERNANCE_REPO>`, create `COMMANDER_INTENT.md` using the section list from the brief (Mission, Why it matters, Ambition, What winning looks like by `<DATE>`, The one thing never to risk, How to choose when goals conflict, Who decides what, How to work with the Owner, COS preferences, Efficiencies, Fleet-wide mandatory skill, Engineering doctrine). Embed the four hard rules (Decision, Truth, No-Silent-Death, Verify-Then-Trust) verbatim. Commit. Capture the commit SHA as `<INTENT_COMMIT_SHA>`.
+**Action.** Run the Commander's Intent interview with the Owner (skill `commanders-intent-interview`, script `interview/commanders-intent-interview.md`). The Owner's answers fill the slots in the `COMMANDERS-INTENT.md` scaffold; the fixed doctrine (five hard rules, disciplined initiative, drift prevention, chain of command) stays as shipped. After the Owner explicitly approves the text as v1.0, save it under `/home/box/agent-data/commanders-intent/`, and with the Owner's yes commit it to the root of `<GOVERNANCE_REPO>` as `COMMANDERS-INTENT.md`. Capture the commit SHA as `<INTENT_COMMIT_SHA>` and the file's SHA-256 (first 12) as the intent checksum.
 
-**Verify.** `git -C <GOVERNANCE_REPO> log -1 --format=%H` returns a SHA that matches `<INTENT_COMMIT_SHA>`; the file exists at repo root; the four rules are present (`grep -c "DECISION RULE\|TRUTH RULE\|NO-SILENT-DEATH\|VERIFY-THEN-TRUST"` ≥ 4).
+**Verify.** `git -C <GOVERNANCE_REPO> log -1 --format=%H -- COMMANDERS-INTENT.md` matches `<INTENT_COMMIT_SHA>`; the file has zero `{{...}}` slots; `sha256sum` matches the recorded checksum; the five hard rules are present.
 
 **Rollback.** `git revert` the commit. Intent is the source of truth, so reverting is safe; nothing else should depend on a particular intent version yet — that gate goes in at step 10.
 

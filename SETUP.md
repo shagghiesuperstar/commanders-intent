@@ -2,6 +2,8 @@
 
 > The installed bot runs `FIRST-RUN.md` for you. This file is the full manual reference behind it.
 
+> **Start with the intent.** Before any placeholder below, the Chief of Staff interviews the Owner to fill [`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) (script: [`interview/commanders-intent-interview.md`](interview/commanders-intent-interview.md)). Intent slots (upper-case names in double curly braces) come only from the Owner's answers; install placeholders (upper-case names in angle brackets) come from the table below. Security gates are in [`SECURITY.md`](SECURITY.md).
+
 This file walks an installer from a blank template to a working fleet. Run it once, in order. Every placeholder in the table below must be resolved before step 11 (read-back).
 
 ---
@@ -53,6 +55,9 @@ The installer answers each row before any code or config ships. "Example format"
 | `<ISSUE_TRACKER>` | Issue tracker identifier (project / repo) for blockers and follow-ups. | `acme/issues` | Order-followup runner, blocker logging |
 | `<ALERT_CHANNEL>` | Where the bot posts alerts that could not be auto-fixed. | `ops-alerts` (channel) | fleet/self-healing.md, escalation paths |
 | `<SPEND_LIMIT>` | Hard spending cap per period; below this the COS may act, above this the Owner must approve. | `USD 500 / month` | Spending gate, "who decides" table |
+| `<NAMED_SPENDERS>` | The only identities (by role) allowed to spend inside `<SPEND_LIMIT>`. Everyone else reads spend and never writes it. | `COS only` | Spend gate, cloud coding agent paid runs (`SECURITY.md` section 9) |
+| `<MERGE_OWNER>` | The one identity allowed to merge reviewed pull requests. Never the author, never the Chief of Staff. | `merge-owner` | Merge gate, CODEOWNERS, `SECURITY.md` section 9 |
+| `<OWNER_GITHUB_HANDLE>` | GitHub handle used in CODEOWNERS for doctrine files. | `@example-owner` | `.github/CODEOWNERS` example in `SECURITY.md` |
 | `<HANDLER>` | Identifier of the long-running Hermes run handler (async jobs that escape the 120s connector timeout). | `run-handler` | `POST /v1/runs`, poll `GET /v1/runs/{run_id}` |
 | `<HANDLER_NIGHTLY>` | Identifier of the nightly reflection handler that writes new guards from the day's failures. | `nightly-reflection` | Nightly cron, self-improvement loop |
 | `<ORDER_FOLLOWUP_RUNNER>` | Identifier of the agent/runner that pings the Owner at every order deadline and pings again if missed. | `order-followup` | Proactivity loop, "push and pester until asks are closed" |

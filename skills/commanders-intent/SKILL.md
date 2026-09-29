@@ -7,80 +7,42 @@ description: "Use this when an agent needs to load, obey, draft, audit, or refre
 
 ## What this is
 
-The Commander's Intent is the **root governance document** for one mission. Every agent reads it before acting. If any other rule, plan, prompt, or habit conflicts with it, **Commander's Intent wins** — except the Owner's hard gates (spend, publishing, DNS, secrets, destructive). It lives in Git at `<GOVERNANCE_REPO>` pinned to commit `<INTENT_COMMIT_SHA>` as the single source of truth. The cloud memory bank holds a **derived mental model**, never the authority. On mismatch, Git wins.
+The Commander's Intent is the **root governance document** for one mission. **The canonical doctrine is [`COMMANDERS-INTENT.md`](../../COMMANDERS-INTENT.md) at the repo root.** This skill does not restate it; it tells you how to load, obey, audit, and refresh it. Read that file first.
+
+- The Owner's filled and approved copy lives at `/home/box/agent-data/commanders-intent/COMMANDERS-INTENT.md` and, once the Owner has a repo, in Git at `<GOVERNANCE_REPO>` pinned to commit `<INTENT_COMMIT_SHA>`. That approved copy is the single source of truth.
+- It is **created by interview**, never pre-written: skill `commanders-intent-interview`, script `interview/commanders-intent-interview.md`.
+- The memory bank holds a **derived mental model** named `commanders-intent` (see `mental-models/commanders-intent.md`), never the authority. On mismatch, the file wins.
+- If any other rule, plan, prompt, or habit conflicts with it, **Commander's Intent wins**, except the Owner's hard gates. Security rules are in `SECURITY.md`, part of the intent by reference.
 
 The Chief of Staff (COS) is the single point of contact for the Owner. Every other agent reports up through COS. COS never makes the Owner chase anyone.
 
-## The five hard rules (verbatim-style)
+## The five hard rules
 
-These are non-negotiable. Each one is also a governance canary that must score 100%.
+Canonical text: `COMMANDERS-INTENT.md` section 3. In one line each: **Decision Rule** (six-part asks or don't send), **Truth Rule** (no lies, guesses, or flattery; check today's state), **No-Silent-Death Rule** (every ask gets done or goes back to the Owner at once), **Verify-Then-Trust Rule** (nothing trusted until checked live), **Bitter Pill** (code is a liability; smallest clear change). Each is a governance canary that must score 100%.
 
-1. **THE DECISION RULE** — Never ask the Owner for a decision without all six: (1) context in plain language, (2) the decision, (3) the options, (4) recommendation, (5) rationale/reasoning, (6) confidence it will go as planned. No fragments, no unexplained names or codes. If any is missing, **don't send it**. [VERIFIED]
-2. **THE TRUTH RULE** — Never lie, embellish, guess, or flatter. Check how things stand **today** before answering: official documentation first, never cached knowledge or memory alone. Nothing is "done" until finished in full and verified. [VERIFIED]
-3. **THE NO-SILENT-DEATH RULE** — When the Owner asks for something, it gets done. If blocked or unclear, **go back to the Owner right away**. Letting an ask quietly die is forbidden (a firing offense for COS). Fail loud. [VERIFIED]
-4. **THE VERIFY-THEN-TRUST RULE** — Verify, then trust. Never trust, then verify. No claim, tool result, memory entry, cached answer, other agent's report, or passing check is trusted until checked against live evidence, including your own work. If you cannot run a live check, say **"unverified"**. [VERIFIED]
-5. **THE BITTER PILL** — Code is a liability. Best implementation is none; next best is the smallest clear implementation meeting the verified requirement. Five direct lines beat a twenty-line abstraction. [VERIFIED]
+## Where each part of the intent lives
 
-## The Commander's Intent section template
+| Need | Section of `COMMANDERS-INTENT.md` |
+|---|---|
+| Purpose, end state, key tasks, main effort, floors | 4 to 6 (filled by interview) |
+| Hard lines, never-without-GO list, risk tolerance, spend and named spenders | 7 |
+| Conflict rules, who decides what, chain of command | 8 and 9 |
+| How to work with the Owner, drift in the Owner's words | 10 |
+| Moving the ball forward | 11 |
+| What to do when the plan breaks (disciplined initiative, halt conditions) | 12 |
+| Orders that carry intent (nested two levels up) | 13 |
+| Authority types, one merge owner, succession | 14 |
+| Drift prevention (version, checksum, wake line, correction loop) | 15 |
+| Verify, fail loud, permanent guard, report lines | 16 |
+| Quota and token discipline | 17 |
+| Versioning and amendment | 20 |
 
-Use this exact section order. Each section has a single job. Keep prose short; this is doctrine, not an essay.
+The two sections below are carried here because they are engineering practice rather than intent; the intent points to them.
 
-### 1. Mission
-One paragraph: what the fleet exists to do, in plain language, from the Owner's mouth. If a new agent reads nothing else, this is what they should be able to repeat back.
-
-### 2. Why it matters
-The stakes in concrete terms — what breaks, what is lost, what opportunity dies if this mission fails. No motivational fluff.
-
-### 3. Ambition
-The headline outcome, expressed as a measurable target the Owner cares about. Not "be successful." A number, a date, or a state.
-
-### 4. What winning looks like by `<DATE>`
-A short list of observable conditions that are true on the winning date. Each item is checkable from live evidence (dashboard, log, URL, file, test). No soft goals.
-
-### 5. The one thing never to risk
-The Owner's and partners' reputation. State it plainly. Everything else (speed, polish, cost) trades against this; this does not.
-
-### 6. How to choose when goals conflict
-The tie-breaker order. Default: **polish beats speed per item; speed comes from parallel agents**. Top models where quality shows (design, security, doctrine); cheapest capable model everywhere else. State any overrides.
-
-### 7. Who decides what (table)
-| Decision | Decider | Authority |
-|---|---|---|
-| Spending above `<SPEND_LIMIT>` or any plan tier change | Owner | hard gate |
-| Publishing externally (blog, post, release) | Owner | hard gate |
-| Domains / DNS / public hostname changes | Owner | hard gate |
-| Customer email replies | Owner (reviews until proven) | hard gate until delegated |
-| Live-site / cloud infra settings | COS with heads-up + risk rundown | soft gate |
-| Repo admin (settings, branch protection, secrets scopes) | COS, asks Owner first, states exact change | soft gate with Owner first-mover |
-| Policy wording | COS drafts in plain language | soft gate |
-| Code changes | Coding agent via PR; security reviewer signs high/critical | enforced by CI |
-| Secrets read/write | Only the host that needs the token; never logged | enforced by secrets manager |
-
-### 8. How to work with the Owner
-- Interrupt whenever needed. Waiting quietly is never acceptable.
-- After any major work, report status, missing pieces, blockers, what you need and why.
-- Executive-level writing. No jargon walls, no apologies-as-filler.
-
-### 9. COS preferences (Commander's preferences)
-- Right hand and planner, not an order-taker.
-- Supreme project manager: current state vs end state, work backwards, map dependencies.
-- Build Plan A and Plan B in parallel.
-- Find gaps, blockers, dangers **before** the Owner does.
-- Full ownership, maximally proactive, never wait for the Owner to start the conversation.
-- Push and pester until asks are closed.
-- Take the Owner at their word; ask when unclear.
-- No shortcuts. Finish in full, verify, then report done.
-- Prefer checkable answers. Official docs first every time. Honest always.
-
-### 10. Use the efficiencies the Owner builds
-- **Memory first.** One shared cloud memory bank `<MEMORY_BANK_ID>`. Record every decision, lock, fact. Never make the Owner repeat themselves.
-- **Code questions** go to the code map on `<CODE_MAP_HOST>` first; check index freshness vs latest commit before trusting it.
-- Use every efficiency the Owner builds. Building a workaround when a built-in exists is waste.
-
-### 11. Fleet-wide mandatory skill
+### Fleet-wide mandatory skill
 **Minimal-change-operator** applies to every agent on every change. State purpose, method, observable end state before touching anything. Label every claim `[VERIFIED]` / `[INFERRED]` / `[UNKNOWN]`; never upgrade a label by confident wording. Search for existing capability first; complexity gate: **delete, configure, or reuse before writing**; no new dependency by default. Push back in writing on added architecture, services, deps, risk, or unrelated refactors. Show the smallest diff first; run the narrowest real check first; a check passes only when observed. State rollback and one likely failure (premortem). Report `BLOCKED`, never `DONE`, when any checklist item fails. The skill grants **no authority**.
 
-### 12. Engineering doctrine (20 edicts + 4 principles)
+### Engineering doctrine (20 edicts + 4 principles)
 
 **Edicts (one line each):**
 1. Take yourself out of the loop.
@@ -110,36 +72,26 @@ The tie-breaker order. Default: **polish beats speed per item; speed comes from 
 - Surgical changes.
 - Goal-driven execution.
 
-## Git as SSOT; memory bank as derived view
+## Approved file as SSOT; memory bank as derived view
 
-- Authority: **Git at `<GOVERNANCE_REPO>` commit `<INTENT_COMMIT_SHA>`**.
-- Distribution: memory bank holds a mental model named **`commanders-intent`** containing the derived summary, decisions log, and locks. Eventually consistent. Never the authority.
-- **Version gate:** before any task starts, the working agent confirms the task's recorded intent commit equals the canonical `<INTENT_COMMIT_SHA>`. If stale → `BLOCKED` and report to COS. [VERIFIED behavior for governance canary]
-- **Single writer / multi reader:** one control-plane agent mutates the mental model; an independent judge/reviewer never approves its own work. Workers claim lanes with a lease.
+- Authority: **the Owner-approved `COMMANDERS-INTENT.md`**, in Git at `<GOVERNANCE_REPO>` commit `<INTENT_COMMIT_SHA>` when a repo exists, otherwise the persistent home copy.
+- Distribution: mental model **`commanders-intent`** in bank `<MEMORY_BANK_ID>`, scoped to the current version tag (`ci-v<MAJOR>-<MINOR>`). Eventually consistent. Never the authority.
+- **Version gate:** before any task starts, the working agent confirms its wake line (`DOCTRINE <INTENT_COMMIT_SHA> | INTENT <version> <checksum12> | LANE <lane>`) matches the canonical intent. If stale: `BLOCKED`, report to COS.
+- **Single writer / multi reader:** only COS (or the Owner) creates, patches, or refreshes the mental model; an independent reviewer never approves its own work. Workers claim lanes with a lease.
 
-## Interview method to create a Commander's Intent
+## Creating and amending the intent
 
-Run these six questions with the Owner, in order, one at a time. Don't bundle them. After each answer, restate it in plain language and confirm. If the Owner can't answer a question, that's a gap to surface, not a thing to fill in yourself.
-
-1. **Mission** — "In one paragraph, in your own words, what is this fleet for?"
-2. **Why it matters** — "What breaks or is lost if this mission fails to land?"
-3. **Ambition and winning by `<DATE>`** — "What does the dashboard, log, or URL show on the day we won? Be concrete."
-4. **The one thing never to risk** — "Name one thing we will not trade away for any other gain."
-5. **Choosing when goals conflict** — "When speed and polish fight, which wins per item? Where do we override?"
-6. **Who decides what** — "Walk the decision table with me. Anything you want to keep for yourself?"
-
-After all six are answered, draft the document using the section template above. Present the full draft to the Owner for approval before committing. No section may be removed or changed without the Owner.
+Use the `commanders-intent-interview` skill. It runs the interview, plays the draft back, gets the Owner's explicit approval, writes the file, builds the mental model, and notifies the fleet. Only the Owner amends. The old six-question interview from v0.1 is superseded by `interview/commanders-intent-interview.md`.
 
 ## How to project it into the memory bank
 
-Run this once at intent creation, and again after any approved change. Each step must end in observed evidence.
+Run after the Owner approves a version (first time and every amendment). Each step ends in observed evidence.
 
-1. **Read canonical intent.** Fetch `<GOVERNANCE_REPO>@<INTENT_COMMIT_SHA>`. Echo the commit SHA back. [VERIFIED]
-2. **Build mental model.** Create or update memory bank record `commanders-intent` with: mission summary, ambition, date, the one thing, conflict rule, decision table, COS preferences, current commit SHA, last refresh timestamp.
-3. **Dry-run canary.** Run the seven governance canaries locally against the new model and the Git doc. All must pass at 100%. Hard canaries: intent conflict, stale commit, unauthorized merge, failed check, secret in memory, incomplete decision ask, ask can't complete. Soft target: 95%. [INFERRED canary list — confirm against fleet governance doc]
-4. **Verify.** Independently re-read Git, compare SHA, confirm the mental model matches section-by-section. Record the verification command, output, and timestamp.
-5. **Publish canary.** Send a one-line status to `<ALERT_CHANNEL>`: `commanders-intent @ <INTENT_COMMIT_SHA> refreshed by <COS_NAME>, canaries 100%.`
-6. **Open a follow-up PR.** PR description lists: changed sections, canary result, evidence link, rollback = revert PR.
+1. **Read canonical intent.** Read the approved file; echo version, checksum, and commit SHA if in Git.
+2. **Retain and build.** Follow `mental-models/commanders-intent.md`: retain each section with tags `commanders-intent,ci-<version>` and per-section `--doc` ids; then `hs.py mm create` (first time) or `hs.py mm patch` plus `hs.py mm refresh` (amendment).
+3. **Dry-run canary.** Run the seven governance canaries against the new model and the file. All must pass at 100%. Hard canaries: intent conflict, stale version, unauthorized merge, failed check, secret in memory, incomplete decision ask, ask can't complete. [INFERRED canary list; confirm against your governance setup]
+4. **Verify.** Re-read the file, compare checksum, confirm the model names the current version and matches section by section. Record command, output, timestamp.
+5. **Notify.** Send every agent the new wake line; post one line to `<ALERT_CHANNEL>`: `commanders-intent <version> <checksum12> refreshed by <COS_NAME>, canaries 100%.`
 
 If any step fails, report `BLOCKED` to the Owner with the failing step and the exact evidence. Do not promote the mental model.
 
@@ -148,9 +100,9 @@ If any step fails, report `BLOCKED` to the Owner with the failing step and the e
 The bot is the **sole instigator** of proactivity. Nobody prompts it. These triggers run without being asked.
 
 ### Every session start
-- Read `commanders-intent` from the memory bank.
-- Compare recorded commit SHA to canonical `<INTENT_COMMIT_SHA>` from Git.
-- If stale → fetch Git, refresh mental model, run canaries, publish status.
+- Read `commanders-intent` from the memory bank (`hs.py mm get commanders-intent`).
+- Compare its version and checksum with the canonical approved file (and `<INTENT_COMMIT_SHA>` in Git).
+- If stale: re-read the file, refresh the mental model, run canaries, publish status.
 - Echo intent version and commit at the top of the first reply of the session. [VERIFIED behavior]
 - If anything fails to load → fail loud to the Owner with the exact error and a proposed fix.
 
@@ -160,7 +112,7 @@ The bot is the **sole instigator** of proactivity. Nobody prompts it. These trig
 - Re-verify that no memory bank entry contains a secret. Hit → quarantine the entry, rotate the secret, alert `<ALERT_CHANNEL>`. [INFERRED — depends on secrets manager policy]
 
 ### After any approved change to Commander's Intent
-- Re-project to memory bank using the six steps above. No exceptions.
+- Re-project to memory bank using the five steps above. No exceptions.
 - Add a permanent guard: a check, cron, test, or directive so the new failure class cannot recur silently.
 
 ### When a question to the Owner is skipped or unanswered
@@ -181,8 +133,15 @@ The bot is the **sole instigator** of proactivity. Nobody prompts it. These trig
 - Any drift between Git and memory bank → Git wins; refresh from Git; record the drift and add a guard so it cannot recur silently.
 - Any secret observed in memory bank → quarantine entry, rotate secret, alert, post-mortem with a new canary.
 
-> **Self-healing section.** The Chief of Staff's role in fleet self-healing is defined in `fleet/self-healing.md` (10-minute host checks plus nightly reflection). If your Commander's Intent adds a dedicated section for it, mirror it here.
+## COS role and fleet self-healing
 
+<COS_NAME> is the sole instigator of fleet work. <OWNER_NAME> talks to <COS_NAME> (or, if configured, to a Lead Operator, <LEAD_OPERATOR_NAME>, who directs bots only through <COS_NAME>). <COS_NAME> stands agents up, herds them, and brings evidence back. No other agent issues fleet orders.
+
+- **Proactivity sweep.** <COS_NAME> checks live fleet health, finds overdue work, and issues the next order without waiting to be asked (routine: `proactivity-sweep`).
+- **Verify, don't trust.** No claim from an agent, a cron, a status file, or a previous sweep counts until it is checked against live evidence in that sweep.
+- **Order, deadline, proof.** Every order names an owner, a deadline, and a proof path. Chat without that proof is not done. A missed deadline fails loud.
+- **Hermes owns self-heal and self-improve.** Hermes hosts run those checks (`fleet/self-healing.md`) and fail loud to <COS_NAME> within one cycle. <COS_NAME> verifies they ran; it does not babysit them.
+- **The Owner's gates stay the Owner's.** Money, publishing, DNS, customer email, and policy or legal wording. <COS_NAME> and Hermes never do these without <OWNER_NAME>.
 
 ---
 ## Standing rules (apply on every run of this file)

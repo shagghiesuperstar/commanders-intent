@@ -4,11 +4,26 @@
 
 One root document tells every agent what the mission is, what it may never risk, and who decides what. One Chief of Staff bot is your single point of contact. Every other agent reports up through it. One shared memory bank means nobody asks you the same question twice.
 
-- **What this is:** a Grok Bot template plus this repo, which holds the doctrine, 23 skills, 4 routines, a fleet self-healing spec, and the first-run script the bot follows on install.
+- **What this is:** a Grok Bot template plus this repo, which holds the Commander's Intent scaffold and interview, the doctrine, 25 skills, 4 routines, a security policy, a fleet self-healing spec, and the first-run script the bot follows on install.
 - **Who it's for:** operators running a small fleet of AI agents (Grok Bot plus one or more Hermes Agent hosts) who want one accountable Chief of Staff instead of a pile of chat tabs.
-- **What you get in about 10 minutes:** a Chief of Staff that interviews you, drafts your Commander's Intent, connects the shared memory bank, installs its skills, and walks you through creating its routines. Wiring Hermes hosts and the survival drill take longer and are guided step by step.
+- **What you get in under an hour:** a Chief of Staff that first interviews you to write your Commander's Intent (about 20 to 30 minutes), turns it into shared fleet memory, confirms it understood you, then connects memory, installs its skills, and walks you through creating its routines. Wiring Hermes hosts and the survival drill take longer and are guided step by step.
 
 Author: Shagghie Superstar ([@shagghiesuperstar](https://github.com/shagghiesuperstar)). License: MIT. Current version: see [CHANGELOG.md](CHANGELOG.md).
+
+---
+
+## Start here: [COMMANDERS-INTENT.md](COMMANDERS-INTENT.md)
+
+The whole template is named after one idea. **Commander's intent** is the military practice of telling every level *why* the mission exists, *what* must be true at the end, and *what must never be risked*, so that when the plan breaks, people keep moving toward the goal instead of waiting or drifting.
+
+[`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) is that document for your agent fleet, and the fleet-wide source of truth:
+
+- **It is created by interview, not pre-written.** On first run, the Chief of Staff interviews you ([script](interview/commanders-intent-interview.md), [skill](skills/commanders-intent-interview/SKILL.md)) and fills the purpose, end state, key tasks, hard lines, spend limits, authority, and communication preferences in your own words. Nothing counts until you approve the final text as v1.0.
+- **It carries fixed doctrine** that the interview never replaces: disciplined initiative (what to do when the plan breaks), the decision rule when blocked, drift prevention, chain of command, verify-then-trust, fail loud, and quota discipline.
+- **It becomes shared memory.** The approved file is turned into a Hindsight mental model named `commanders-intent` ([definition](mental-models/commanders-intent.md)) that every agent reads before acting on doctrine.
+- **It is versioned.** Only you amend it. Every version bump refreshes the mental model and tells every agent.
+
+See a fictional filled example in [`examples/commanders-intent-example.md`](examples/commanders-intent-example.md). Security rules for every agent, host, and cloud coding agent are in **[SECURITY.md](SECURITY.md)**.
 
 ---
 
@@ -23,6 +38,8 @@ Prefer to read first? [`INSTALL.md`](INSTALL.md) explains what the bot will ask 
 ---
 
 ## The doctrine
+
+The canonical text of the doctrine is [`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) Parts I and III. The summary below is for orientation.
 
 ### Five hard rules
 
@@ -46,7 +63,7 @@ Prefer to read first? [`INSTALL.md`](INSTALL.md) explains what the bot will ask 
 10. **One memory bank.** Commander's Intent is the root document and wins on conflict.
 11. **Computer-update survival.** Keep all state, keys, configs, and restore scripts under `/home/box`, self-restore hourly, and never call a setup done until it has survived an update.
 
-Owner gates always win: spending, publishing, DNS and domains, secrets, and destructive actions need the Owner's explicit yes.
+Owner gates always win: spending, publishing, DNS and domains, secrets, and destructive actions need the Owner's explicit yes. The full never-without-GO list is in [`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) section 7 and [`SECURITY.md`](SECURITY.md) section 5.
 
 ---
 
@@ -55,11 +72,14 @@ Owner gates always win: spending, publishing, DNS and domains, secrets, and dest
 ```mermaid
 flowchart TB
   Owner([Owner]) <--> COS["Chief of Staff<br/>(Grok Bot)"]
-  CI[("Commander's Intent<br/>in Git: source of truth")] --> COS
+  Owner -- "interview + approval" --> CI[("COMMANDERS-INTENT.md<br/>Owner-approved, versioned:<br/>source of truth")]
+  CI --> COS
+  CI -- "retain + refresh" --> MB
   COS -- "HTTP :8642 over private net" --> H1["Hermes Agent host 1"]
   COS -- "HTTP :8642 over private net" --> H2["Hermes Agent host 2"]
   COS -- "HTTP :8642 over private net" --> HN["Hermes Agent host N"]
-  COS <--> MB[("One Hindsight memory bank<br/>derived mental model")]
+  COS <--> MB[("One Hindsight memory bank<br/>mental model: commanders-intent")]
+  COS -- "draft PRs only" --> CA["Cloud coding agents"]
   H1 <--> MB
   H2 <--> MB
   HN <--> MB
@@ -77,7 +97,8 @@ flowchart TB
   COS --- S3
 ```
 
-- **Authority:** Git holds Commander's Intent. The memory bank holds a derived view. On mismatch, Git wins.
+- **Authority:** the Owner-approved `COMMANDERS-INTENT.md` (in the Owner's Git repo, or the persistent home copy until one exists) is the authority. The memory bank holds a derived mental model. On mismatch, the file wins.
+- **Cloud coding agents:** branch-only work and draft PRs; independent review; exactly one merge owner merges. See [`SECURITY.md`](SECURITY.md) section 9.
 - **Talk path:** the Chief of Staff reaches Hermes hosts over the native Hermes HTTP API on port 8642 inside a private network. No SSH relay for fleet asks.
 - **Memory:** one Hindsight Cloud bank for every agent. Secrets never go in memory.
 - **Survival:** everything the bot installs on its own computer restores itself after an update.
@@ -88,14 +109,19 @@ flowchart TB
 
 | Path | What it is |
 |---|---|
+| [`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) | **Start here.** The intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth |
+| [`interview/`](interview/) | The Chief of Staff's interview script for creating and amending the intent |
+| [`mental-models/`](mental-models/) | The `commanders-intent` Hindsight mental model: create body, refresh triggers, commands |
+| [`examples/`](examples/) | A fictional filled intent, for illustration only |
+| [`SECURITY.md`](SECURITY.md) | Threat model, secrets, prompt injection, cloud coding agents, incident response, vulnerability reporting |
 | [`FIRST-RUN.md`](FIRST-RUN.md) | The exact script the installed bot follows on first conversation |
 | [`INSTALL.md`](INSTALL.md) | Human-readable install overview and what to have ready |
 | [`SETUP.md`](SETUP.md) | Full manual reference: every placeholder and install step |
 | [`persona/SOUL.md`](persona/SOUL.md) | Chief of Staff persona plus the SOUL.md skeleton for every fleet agent |
-| [`skills/`](skills/) | 23 skills (doctrine, proactivity, memory, Hermes wiring, survival, getting started) |
+| [`skills/`](skills/) | 25 skills (intent interview, doctrine, proactivity, quota discipline, research gate, memory, Hermes wiring, survival, getting started) |
 | [`routines/`](routines/) | 4 routines with copy-paste prompts and cron values |
 | [`fleet/self-healing.md`](fleet/self-healing.md) | 10-minute host self-heal checks and nightly reflection |
-| [`tools/hindsight/hs.py`](tools/hindsight/hs.py) | Standard-library Hindsight REST helper (recall, reflect, retain, mental models) |
+| [`tools/hindsight/hs.py`](tools/hindsight/hs.py) | Standard-library Hindsight REST helper (recall, reflect, retain, mental model list, get, create, patch, refresh) |
 | [`OPEN-QUESTIONS.md`](OPEN-QUESTIONS.md) | What is still [UNKNOWN] and how to check it on your fleet |
 | [`FABRIC.md`](FABRIC.md) | How this template and its sister templates are versioned together |
 | [`CHANGELOG.md`](CHANGELOG.md) | Fabric changelog |
@@ -125,4 +151,4 @@ This repo is the canonical source of truth for the Commander's Intent fabric. Ev
 
 ## Contributing
 
-Issues and pull requests are welcome. Keep changes minimal, label claims [VERIFIED], [INFERRED], or [UNKNOWN], and never include secrets, hostnames, private addresses, or personal names in examples. Use `<PLACEHOLDER>` tokens instead.
+Issues and pull requests are welcome. Report security issues privately as described in [`SECURITY.md`](SECURITY.md), not as public issues. Keep changes minimal, label claims [VERIFIED], [INFERRED], or [UNKNOWN], and never include secrets, hostnames, private addresses, or personal names in examples. Use `<PLACEHOLDER>` tokens instead.

@@ -1,0 +1,11 @@
+{
+  "id": "commanders-intent",
+  "name": "Commander's Intent",
+  "source_query": "What is the Owner's current approved Commander's Intent? Give the intent version and checksum, the purpose (mission, why it matters, who it serves), the end state (90 days, one year, winning conditions and date, what is not in the end state), key tasks, main effort, keep-alive floors, the one thing never to risk, the never-without-GO list including Owner additions, risk tolerance, spend limit, named spenders and any spend freeze, how to choose when goals conflict, who decides what, the chain of command and deputy, what to do when blocked, what drift looks like to the Owner, and communication preferences. Use only the approved version; quote the Owner's wording; mark anything missing as an open field.",
+  "tags": ["commanders-intent", "ci-v1-0"],
+  "max_tokens": 4096,
+  "trigger": {
+    "mode": "full",
+    "refresh_cron": "0 13 * * 1"
+  }
+}

@@ -68,6 +68,8 @@ Ladder logic runs only after the merged-or-closed gate resolves.
 
 Delegate code to cloud coding agents. Supervise the approach, not just pass/fail. Split ballooning PRs into smaller reviewable pieces before they block. Feed agents the full finding bodies and exact CI error text; cloud agents often cannot read CI logs themselves. Prefer replying on an existing agent session attached to that PR over launching a fresh one. Demand real proof (linked hosted artifacts, command output, screenshots). Never merge without explicit Owner approval.
 
+**Cloud coding agent security (mandatory, see `SECURITY.md` section 9):** least-scope repo access; secrets only from a vault injected at runtime, never pasted into prompts or chat; no production secrets in the agent environment; draft PR only, never push to `main`; independent reviewer approves before merge (code review, critic pass, security pass); exactly one designated merge owner (`<MERGE_OWNER>`) merges, and the orchestrator never merges; production is proven by read-back; paid runs only by `<NAMED_SPENDERS>` and never during a spend freeze; any model fallback is reported loudly.
+
 ## Cloud coding agents
 
 - One runner per PR stream. Fresh launch only for a new task or an intentional rewrite.

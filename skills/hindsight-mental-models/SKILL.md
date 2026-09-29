@@ -25,7 +25,7 @@ Mental models sit at the **top of Hindsight's hierarchy** (Mental Models → Obs
 
 ## Standing locks
 - **One bank for the whole fleet: `<MEMORY_BANK_ID>`.** Every host running Hermes Agent, every Grok bot persona, and every cloud coding agent reads and writes the same Hindsight Cloud bank. There is no other bank and no other durable-memory store.
-- **Ordinary memory work** (recall, reflect, retain, reading mental models) goes through the fleet's shared `hindsight-memory` skill (CLI helper `<WORKSPACE_PATH>/tools/hindsight/hs.py`, shipped in this repo at `tools/hindsight/hs.py`, e.g. `mm list`, `mm get <id>`). This skill covers mental-model CRUD only.
+- **Ordinary memory work** (recall, reflect, retain, reading mental models) goes through the fleet's shared `hindsight-memory` skill (CLI helper `<WORKSPACE_PATH>/tools/hindsight/hs.py`, shipped in this repo at `tools/hindsight/hs.py`, e.g. `mm list`, `mm get <id>`; since v0.2.0 also `mm create <body.json>`, `mm patch <id> <body.json>`, `mm refresh <id>`). This skill covers mental-model CRUD only.
 - **Who changes models:** any fleet member may list/get models. Create / update / refresh / clear / delete only when COS or the Owner explicitly assigned that job.
 - **If Hindsight fails** (auth, 5xx, `BLOCKED:`), report BLOCKED with the reason and retry later. Never save the content somewhere else instead.
 - **Talking to hosts** (asking a Hermes Agent host to do work) stays **HTTP `:8642` only**. SSH is not an ask path. That is the talk path, not a memory restriction.
@@ -131,6 +131,7 @@ Verify markdown looks right (no secrets, lock language is hard not soft).
 ### 6) Suggested starter catalog (push when facts exist)
 | Stable `id` | Purpose | Auto-refresh |
 | --- | --- | --- |
+| `commanders-intent` | The Owner's approved Commander's Intent, scoped to the current version tag. Definition: `mental-models/commanders-intent.md` | weekly cron + manual on every version bump |
 | `fleet-http-only-talk-path` | HTTP `:8642` only; SSH ask forbidden | consolidation |
 | `fleet-memory-fabric` | Single Hindsight bank `<MEMORY_BANK_ID>` for the whole fleet; key rules | consolidation |
 | `fleet-bake-gates` | What must be BAKE_OK before human demo | manual or cron |
