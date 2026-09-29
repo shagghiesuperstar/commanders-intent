@@ -1,17 +1,17 @@
 # MANIFEST
 
-Commander's Intent v0.2.2 (2026-09-28). 51 files. Byte sizes measured before push.
+Commander's Intent v0.2.2 (2026-09-28). 52 files. Byte sizes measured before push.
 
 | File | Purpose | Bytes |
 |---|---|---:|
 | `.github/CODEOWNERS` | Code owners: every path requests review from the repo owner (SECURITY.md section 8) | 85 |
-| `CHANGELOG.md` | Fabric changelog | 9290 |
+| `CHANGELOG.md` | Fabric changelog | 9468 |
 | `COMMANDERS-INTENT.md` | Start here. The Commander's Intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth | 29452 |
 | `FABRIC.md` | The root of the fabric (COMMANDERS-INTENT.md), how sister templates fit together, update-in-unison process, leak scan | 4603 |
 | `FIRST-RUN.md` | Exact first-run script: intent interview first, then memory and mental model, alignment, security gates, setup, skills, routines, proofs | 16189 |
 | `INSTALL.md` | Human install overview: what to have ready, time, what the bot never asks for | 2448 |
 | `LICENSE` | MIT license | 1073 |
-| `MANIFEST.md` | This file | 7796 |
+| `MANIFEST.md` | This file | 7938 |
 | `OPEN-QUESTIONS.md` | Open [UNKNOWN] items and how to check them on your fleet | 10354 |
 | `README.md` | Landing page: start here (Commander's Intent), install, doctrine, architecture, repo map, related templates | 11745 |
 | `SECURITY.md` | Threat model, secrets, prompt injection, supply chain, cloud coding agents, data handling, incident response, vulnerability reporting | 21280 |
@@ -54,6 +54,7 @@ Commander's Intent v0.2.2 (2026-09-28). 51 files. Byte sizes measured before pus
 | `skills/wire-hermes-native-api/SKILL.md` | An installer needs to enable Hermes Agent's native HTTP API on port 8642 on an agent host, verify health, or add a private-network-reachable... | 6539 |
 | `social/x-article-v0.1.md` | v0.1 release article and reply variants | 6351 |
 | `social/x-article-v0.2.md` | v0.2 release article and reply variants | 6026 |
+| `social/x-article-v0.3.md` | Rewritten release article (Marine Corps doctrine, top changes, security note) and promo post variants | 7641 |
 | `tools/hindsight/hs.py` | Standard-library Hindsight REST helper (bank from HINDSIGHT_BANK; recall, reflect, retain, mental model list/get/create/patch/refresh) | 3976 |
 
-Total files: 51. Total bytes: 490736.
+Total files: 52. Total bytes: 498697.

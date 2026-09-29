@@ -12,6 +12,9 @@ Public owner name is now @pixelrainbownft.
 - The owner's public name is now the X handle @pixelrainbownft in `README.md` (author and doctrine credit), `COMMANDERS-INTENT.md` (doctrine lineage and sources), `LICENSE`, and the v0.2.1 entry below. The GitHub username `shagghiesuperstar` in URLs and `.github/CODEOWNERS` is unchanged.
 - `MANIFEST.md` byte sizes updated.
 
+### Added
+- `social/x-article-v0.3.md`: rewritten release article in the owner's voice on Marine Corps doctrine, with the top changes, a security note, and promo post variants.
+
 ## v0.2.1 (2026-09-28)
 
 Doctrine corrected to USMC lineage. Commander's Intent doctrine comes from the U.S. Marine Corps. Doctrine developed with @pixelrainbownft's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". v0.2.0 wrongly grounded it in another service's publications; every such reference is removed.
