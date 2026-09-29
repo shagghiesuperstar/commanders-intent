@@ -4,7 +4,7 @@ The "fabric" is the set of Grok Bot templates that share one doctrine. Commander
 
 ## The root of the fabric
 
-[`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) is the root of the fabric. Every template in the set, and every agent a template installs, answers to the installing Owner's approved Commander's Intent, created by interview from that scaffold. Its fixed doctrine (Parts I and III: the five hard rules, disciplined initiative, drift prevention, chain of command, quota discipline) is shared by every template. Its Part II is each Owner's own. [`SECURITY.md`](SECURITY.md) is part of the intent by reference and applies across the fabric. Everything else (skills, routines, fleet specs, sister templates) sits under those two files.
+[`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) is the root of the fabric. Every template in the set, and every agent a template installs, answers to the installing Owner's approved Commander's Intent, created by interview from that scaffold. Its fixed doctrine (Parts I and III: the five hard rules, initiative within intent, drift prevention, chain of command, quota discipline) is shared by every template. Its Part II is each Owner's own. [`SECURITY.md`](SECURITY.md) is part of the intent by reference and applies across the fabric. Everything else (skills, routines, fleet specs, sister templates) sits under those two files.
 
 ## How the templates fit together
 

@@ -8,18 +8,18 @@ One root document tells every agent what the mission is, what it may never risk,
 - **Who it's for:** operators running a small fleet of AI agents (Grok Bot plus one or more Hermes Agent hosts) who want one accountable Chief of Staff instead of a pile of chat tabs.
 - **What you get in under an hour:** a Chief of Staff that first interviews you to write your Commander's Intent (about 20 to 30 minutes), turns it into shared fleet memory, confirms it understood you, then connects memory, installs its skills, and walks you through creating its routines. Wiring Hermes hosts and the survival drill take longer and are guided step by step.
 
-Author: Shagghie Superstar ([@shagghiesuperstar](https://github.com/shagghiesuperstar)). License: MIT. Current version: see [CHANGELOG.md](CHANGELOG.md).
+Author: Shagghie Superstar ([@shagghiesuperstar](https://github.com/shagghiesuperstar)). Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". License: MIT. Current version: see [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
 ## Start here: [COMMANDERS-INTENT.md](COMMANDERS-INTENT.md)
 
-The whole template is named after one idea. **Commander's intent** is the military practice of telling every level *why* the mission exists, *what* must be true at the end, and *what must never be risked*, so that when the plan breaks, people keep moving toward the goal instead of waiting or drifting.
+The whole template is named after one idea. **Commander's intent** is the U.S. Marine Corps practice, set out in MCDP 1, *Warfighting*, of telling every level *why* the mission exists, *what* must be true at the end, and *what must never be risked*, so that when the plan breaks, people keep moving toward the goal instead of waiting or drifting.
 
 [`COMMANDERS-INTENT.md`](COMMANDERS-INTENT.md) is that document for your agent fleet, and the fleet-wide source of truth:
 
 - **It is created by interview, not pre-written.** On first run, the Chief of Staff interviews you ([script](interview/commanders-intent-interview.md), [skill](skills/commanders-intent-interview/SKILL.md)) and fills the purpose, end state, key tasks, hard lines, spend limits, authority, and communication preferences in your own words. Nothing counts until you approve the final text as v1.0.
-- **It carries fixed doctrine** that the interview never replaces: disciplined initiative (what to do when the plan breaks), the decision rule when blocked, drift prevention, chain of command, verify-then-trust, fail loud, and quota discipline.
+- **It carries fixed doctrine** that the interview never replaces: initiative within intent (what to do when the plan breaks), the decision rule when blocked, drift prevention, chain of command, verify-then-trust, fail loud, and quota discipline.
 - **It becomes shared memory.** The approved file is turned into a Hindsight mental model named `commanders-intent` ([definition](mental-models/commanders-intent.md)) that every agent reads before acting on doctrine.
 - **It is versioned.** Only you amend it. Every version bump refreshes the mental model and tells every agent.
 

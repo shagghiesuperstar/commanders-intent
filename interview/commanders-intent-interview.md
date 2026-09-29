@@ -39,7 +39,7 @@ Then ask question 0: **"What should I call you, and what should you call me?"** 
 | 6 | Pick a date. On that date, what would you look at to know we won? List each condition. | `{{WINNING_DATE}}`, `{{WINNING_CONDITIONS}}` | "Can an agent answer yes, no, or N/A for each line today?" "Is one proof enough, or does it need to keep passing?" |
 | 7 | What should we deliberately not chase right now? | `{{NOT_IN_END_STATE}}` | "What looks useful but would be a distraction?" |
 
-## Stage 3. Key tasks and main effort (fills section 6)
+## Stage 3. Method: key tasks and main effort (fills section 6)
 
 | # | Question | Slot | Follow-up probes |
 |---|---|---|---|

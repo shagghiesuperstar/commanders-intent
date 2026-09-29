@@ -1,6 +1,8 @@
 # Commander's Intent v0.2: Every Agent Knows the Mission, Even When the Plan Breaks
 
-Armies figured out long ago that plans break on contact. The units that keep winning are the ones where every soldier knows why they were sent, what must be true at the end, and what they must never risk. That idea has a name: commander's intent. When the plan fails, people act within the intent instead of waiting for new orders or improvising their way off course.
+The U.S. Marine Corps builds its warfighting doctrine on a hard truth: plans go awry and communications fail. Its answer, in MCDP 1, Warfighting, is commander's intent. Every mission has a task and a purpose, and of the two the purpose wins. When the situation makes the task obsolete, every Marine still knows why they were sent, so they act within the intent instead of waiting for new orders or improvising their way off course. The Marines add mission tactics (say what and why, leave the how to the person doing it) and a main effort (one thing gets priority; everyone else asks how to support it).
+
+This doctrine was developed with my father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick".
 
 An AI agent fleet hits a broken plan many times a day. A key expires, an API changes, a reviewer finds a flaw. Without intent, each agent either stops and waits, so the ask dies quietly, or it keeps going toward whatever its last prompt implied, so the fleet drifts. Both are silent failures.
 
@@ -8,7 +10,7 @@ Commander's Intent v0.1 gave you a Chief of Staff bot and the rules around it. v
 
 ## 1. The intent is a real file at the root: COMMANDERS-INTENT.md
 
-One document every agent reads before acting, on every host and in every cloud session. It holds the purpose, the end state, the key tasks, the hard lines, and who decides what. When anything conflicts with it, it wins, except your own gates on spending, publishing, and the like.
+One document every agent reads before acting, on every host and in every cloud session. It holds the purpose, the method (key tasks and the main effort), the end state, the hard lines, and who decides what. When anything conflicts with it, it wins, except your own gates on spending, publishing, and the like.
 
 ## 2. It is written by interview, in your words
 
@@ -54,7 +56,7 @@ Install it and say hello. The first thing it does is ask what your fleet is for.
 
 ## Reply variants (each under 280 characters)
 
-1. Commander's intent: tell every level why, what done looks like, and what never to risk, so they keep moving when the plan breaks. v0.2 builds that into an AI agent fleet. Open repo: https://github.com/shagghiesuperstar/commanders-intent
+1. Commander's intent, straight from Marine Corps doctrine: tell every level why, what done looks like, and what never to risk, so they keep moving when the plan breaks. v0.2 builds it into an AI agent fleet. Open repo: https://github.com/shagghiesuperstar/commanders-intent
 
 2. My Chief of Staff bot doesn't hand me a mission. It interviews me, uses my words, plays the draft back, and waits for my approval before any agent treats it as doctrine. v0.2: https://github.com/shagghiesuperstar/commanders-intent
 
