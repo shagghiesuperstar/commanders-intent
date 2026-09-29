@@ -4,9 +4,17 @@ All notable changes to the Commander's Intent fabric. Versions follow semantic v
 
 > **Fabric note.** This repo and its sister Grok Bot templates (Hermes API Fleet, Hermes Fleet Ops, n8n Master, and the legacy Hermes SSH Relay) are versioned together. A fabric version names the doctrine every template in the set follows. When a release changes shared doctrine, every affected sister template is updated in the same release. See [FABRIC.md](FABRIC.md).
 
+## v0.2.2 (2026-09-28)
+
+Public owner name is now @pixelrainbownft.
+
+### Changed
+- The owner's public name is now the X handle @pixelrainbownft in `README.md` (author and doctrine credit), `COMMANDERS-INTENT.md` (doctrine lineage and sources), `LICENSE`, and the v0.2.1 entry below. The GitHub username `shagghiesuperstar` in URLs and `.github/CODEOWNERS` is unchanged.
+- `MANIFEST.md` byte sizes updated.
+
 ## v0.2.1 (2026-09-28)
 
-Doctrine corrected to USMC lineage. Commander's Intent doctrine comes from the U.S. Marine Corps. Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". v0.2.0 wrongly grounded it in another service's publications; every such reference is removed.
+Doctrine corrected to USMC lineage. Commander's Intent doctrine comes from the U.S. Marine Corps. Doctrine developed with @pixelrainbownft's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". v0.2.0 wrongly grounded it in another service's publications; every such reference is removed.
 
 ### Changed
 - **`COMMANDERS-INTENT.md`** sections 1 and 2 rebuilt on Marine Corps doctrine: MCDP 1, *Warfighting* (mission as task plus intent, intent predominant, mission tactics, main effort, initiative within intent, trust); MCDP 6, *Command and Control* (implicit communication); MCDP 5, *Planning*; MCWP 5-10, *Marine Corps Planning Process* (definition of commander's intent). Intent is now written as purpose, method, end state, with key tasks and the main effort as the method. Adds the leadership habits from Jon T. Hoffman's *Chesty* and a doctrine sources table. Header gains a doctrine lineage line.

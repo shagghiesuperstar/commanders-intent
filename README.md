@@ -8,7 +8,7 @@ One root document tells every agent what the mission is, what it may never risk,
 - **Who it's for:** operators running a small fleet of AI agents (Grok Bot plus one or more Hermes Agent hosts) who want one accountable Chief of Staff instead of a pile of chat tabs.
 - **What you get in under an hour:** a Chief of Staff that first interviews you to write your Commander's Intent (about 20 to 30 minutes), turns it into shared fleet memory, confirms it understood you, then connects memory, installs its skills, and walks you through creating its routines. Wiring Hermes hosts and the survival drill take longer and are guided step by step.
 
-Author: Shagghie Superstar ([@shagghiesuperstar](https://github.com/shagghiesuperstar)). Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". License: MIT. Current version: see [CHANGELOG.md](CHANGELOG.md).
+Author: @pixelrainbownft on X ([@shagghiesuperstar](https://github.com/shagghiesuperstar) on GitHub). Doctrine developed with @pixelrainbownft's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". License: MIT. Current version: see [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
