@@ -1,23 +1,23 @@
 # MANIFEST
 
-Commander's Intent v0.2.0 (2026-09-28). 50 files. Byte sizes measured before push.
+Commander's Intent v0.2.1 (2026-09-28). 50 files. Byte sizes measured before push.
 
 | File | Purpose | Bytes |
 |---|---|---:|
-| `CHANGELOG.md` | Fabric changelog | 7115 |
-| `COMMANDERS-INTENT.md` | Start here. The Commander's Intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth | 25049 |
-| `FABRIC.md` | The root of the fabric (COMMANDERS-INTENT.md), how sister templates fit together, update-in-unison process, leak scan | 4601 |
+| `CHANGELOG.md` | Fabric changelog | 8872 |
+| `COMMANDERS-INTENT.md` | Start here. The Commander's Intent scaffold and fixed doctrine; filled by interview, approved by the Owner, fleet-wide source of truth | 29428 |
+| `FABRIC.md` | The root of the fabric (COMMANDERS-INTENT.md), how sister templates fit together, update-in-unison process, leak scan | 4603 |
 | `FIRST-RUN.md` | Exact first-run script: intent interview first, then memory and mental model, alignment, security gates, setup, skills, routines, proofs | 16189 |
 | `INSTALL.md` | Human install overview: what to have ready, time, what the bot never asks for | 2448 |
 | `LICENSE` | MIT license | 1075 |
 | `MANIFEST.md` | This file | 7680 |
 | `OPEN-QUESTIONS.md` | Open [UNKNOWN] items and how to check them on your fleet | 10354 |
-| `README.md` | Landing page: start here (Commander's Intent), install, doctrine, architecture, repo map, related templates | 11561 |
+| `README.md` | Landing page: start here (Commander's Intent), install, doctrine, architecture, repo map, related templates | 11720 |
 | `SECURITY.md` | Threat model, secrets, prompt injection, supply chain, cloud coding agents, data handling, incident response, vulnerability reporting | 21280 |
 | `SETUP.md` | Full manual reference: placeholder table and install steps | 19919 |
-| `examples/commanders-intent-example.md` | Fictional filled Commander's Intent, example only | 7026 |
+| `examples/commanders-intent-example.md` | Fictional filled Commander's Intent, example only | 7034 |
 | `fleet/self-healing.md` | 10-minute host self-heal checks, status file, alerts, nightly reflection | 24275 |
-| `interview/commanders-intent-interview.md` | Chief of Staff interview script: staged questions, probes, playback, approval, amend flow | 10443 |
+| `interview/commanders-intent-interview.md` | Chief of Staff interview script: staged questions, probes, playback, approval, amend flow | 10451 |
 | `mental-models/commanders-intent.json` | Create body for the commanders-intent mental model | 934 |
 | `mental-models/commanders-intent.md` | The commanders-intent Hindsight mental model: scoping, refresh triggers, hs.py commands, how agents query it | 6533 |
 | `persona/SOUL.md` | Chief of Staff persona plus SOUL.md requirements and skeleton for every agent | 23738 |
@@ -29,14 +29,14 @@ Commander's Intent v0.2.0 (2026-09-28). 50 files. Byte sizes measured before pus
 | `skills/chief-of-staff-persona/SKILL.md` | Operating as Chief of Staff (<COS_NAME>) for the Owner: sole point of contact, owner of proactivity, planner not order-taker, runs the dail... | 12725 |
 | `skills/commanders-intent-getting-started/SKILL.md` | On the first conversation after someone installs the Commander's Intent template: fetch FIRST-RUN.md from the canonical repo and run it with... | 3123 |
 | `skills/commanders-intent-interview/SKILL.md` | Run the interview, write the approved intent under /home/box, build the mental model, notify the fleet | 8063 |
-| `skills/commanders-intent/SKILL.md` | An agent needs to load, obey, draft, audit, or refresh the Commander's Intent root document that governs the fleet, or when any task must be... | 12499 |
+| `skills/commanders-intent/SKILL.md` | An agent needs to load, obey, draft, audit, or refresh the Commander's Intent root document that governs the fleet, or when any task must be... | 12501 |
 | `skills/delegate-troubleshooting/SKILL.md` | Troubleshooting backend, admin, logs, or payment-integration issues would burn orchestrator tokens: delegate the dig to a capable model ses... | 4505 |
 | `skills/desktop-v1-runs-escape/SKILL.md` | A Grok connector ask to a Hermes host running Hermes locally dies around ~120s with tool error -32001: escape via host-local POST /v1/runs ... | 5741 |
 | `skills/engineering-playbook/SKILL.md` | Shipping code through cloud coding agents, supervising PRs to merge, or running a fleet watcher. Triggers on any new PR stream, draft openin... | 10760 |
 | `skills/failure-to-permanent-guard/SKILL.md` | Something has already failed, almost failed, or could fail silently again: to turn that failure into the cheapest permanent guard that make... | 9861 |
 | `skills/fleet-post-sprint-hygiene/SKILL.md` | A Hermes or Grok orchestration sprint finishes long asks, merges, browser smokes, CLI harnesses, or heavy SSH work: before declaring DONE o... | 6483 |
 | `skills/fleet-reference-architecture/SKILL.md` | Designing, integrating, or troubleshooting the Grok Bot fleet: Owner, Chief of Staff, Hermes agents, Hindsight memory, secrets, Git, and se... | 10815 |
-| `skills/fleet-stand-up-runbook/SKILL.md` | Standing up the agent fleet from zero: installing the private net, Hermes Agent, the shared memory bank, secrets, skills, routines, and the... | 15861 |
+| `skills/fleet-stand-up-runbook/SKILL.md` | Standing up the agent fleet from zero: installing the private net, Hermes Agent, the shared memory bank, secrets, skills, routines, and the... | 15863 |
 | `skills/grok-bot-computer-update-survival-tailscale/SKILL.md` | >- | 4544 |
 | `skills/hermes-bridge-method-chooser/SKILL.md` | Choosing how Hermes is reached from Grok Bot: the fleet default and only allowed ask/manage path is the native Hermes HTTP API on port 8642... | 7561 |
 | `skills/hermes-fleet-bws-inventory/SKILL.md` | Inventorying or verifying Bitwarden Secrets Manager (BWS) on Hermes Agent hosts, or when API_SERVER_KEY or Hindsight auth drifts: never ass... | 7463 |
@@ -52,7 +52,7 @@ Commander's Intent v0.2.0 (2026-09-28). 50 files. Byte sizes measured before pus
 | `skills/verify-by-read-back/SKILL.md` | You have just made any write or change to prove the artifact matches the intended state by reading it back from the live system before repor... | 9145 |
 | `skills/wire-hermes-native-api/SKILL.md` | An installer needs to enable Hermes Agent's native HTTP API on port 8642 on an agent host, verify health, or add a private-network-reachable... | 6539 |
 | `social/x-article-v0.1.md` | v0.1 release article and reply variants | 6351 |
-| `social/x-article-v0.2.md` | v0.2 release article and reply variants | 5607 |
+| `social/x-article-v0.2.md` | v0.2 release article and reply variants | 6026 |
 | `tools/hindsight/hs.py` | Standard-library Hindsight REST helper (bank from HINDSIGHT_BANK; recall, reflect, retain, mental model list/get/create/patch/refresh) | 3976 |
 
-Total files: 50. Total bytes: 483334.
+Total files: 50. Total bytes: 490070.

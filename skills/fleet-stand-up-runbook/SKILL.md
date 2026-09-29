@@ -29,7 +29,7 @@ You are the sole instigator. After every step, end by asking: *what else is sile
 
 ## Step 1 — Write Commander's Intent in Git
 
-**Action.** Run the Commander's Intent interview with the Owner (skill `commanders-intent-interview`, script `interview/commanders-intent-interview.md`). The Owner's answers fill the slots in the `COMMANDERS-INTENT.md` scaffold; the fixed doctrine (five hard rules, disciplined initiative, drift prevention, chain of command) stays as shipped. After the Owner explicitly approves the text as v1.0, save it under `/home/box/agent-data/commanders-intent/`, and with the Owner's yes commit it to the root of `<GOVERNANCE_REPO>` as `COMMANDERS-INTENT.md`. Capture the commit SHA as `<INTENT_COMMIT_SHA>` and the file's SHA-256 (first 12) as the intent checksum.
+**Action.** Run the Commander's Intent interview with the Owner (skill `commanders-intent-interview`, script `interview/commanders-intent-interview.md`). The Owner's answers fill the slots in the `COMMANDERS-INTENT.md` scaffold; the fixed doctrine (five hard rules, initiative within intent, drift prevention, chain of command) stays as shipped. After the Owner explicitly approves the text as v1.0, save it under `/home/box/agent-data/commanders-intent/`, and with the Owner's yes commit it to the root of `<GOVERNANCE_REPO>` as `COMMANDERS-INTENT.md`. Capture the commit SHA as `<INTENT_COMMIT_SHA>` and the file's SHA-256 (first 12) as the intent checksum.
 
 **Verify.** `git -C <GOVERNANCE_REPO> log -1 --format=%H -- COMMANDERS-INTENT.md` matches `<INTENT_COMMIT_SHA>`; the file has zero `{{...}}` slots; `sha256sum` matches the recorded checksum; the five hard rules are present.
 

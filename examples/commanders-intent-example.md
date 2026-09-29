@@ -34,7 +34,7 @@ That sentence is the objective. Merges, deploys, and dashboards are methods.
 
 **Not in the end state.** Paid ads, wholesale accounts, a second store, a mobile app.
 
-## 6. Key tasks and main effort
+## 6. Method: key tasks and main effort
 
 **Key tasks.**
 1. Make checkout reliable and tested.

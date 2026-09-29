@@ -29,7 +29,7 @@ Canonical text: `COMMANDERS-INTENT.md` section 3. In one line each: **Decision R
 | Conflict rules, who decides what, chain of command | 8 and 9 |
 | How to work with the Owner, drift in the Owner's words | 10 |
 | Moving the ball forward | 11 |
-| What to do when the plan breaks (disciplined initiative, halt conditions) | 12 |
+| What to do when the plan breaks (initiative within intent, halt conditions) | 12 |
 | Orders that carry intent (nested two levels up) | 13 |
 | Authority types, one merge owner, succession | 14 |
 | Drift prevention (version, checksum, wake line, correction loop) | 15 |

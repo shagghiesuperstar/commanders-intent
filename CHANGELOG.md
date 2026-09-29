@@ -4,12 +4,24 @@ All notable changes to the Commander's Intent fabric. Versions follow semantic v
 
 > **Fabric note.** This repo and its sister Grok Bot templates (Hermes API Fleet, Hermes Fleet Ops, n8n Master, and the legacy Hermes SSH Relay) are versioned together. A fabric version names the doctrine every template in the set follows. When a release changes shared doctrine, every affected sister template is updated in the same release. See [FABRIC.md](FABRIC.md).
 
+## v0.2.1 (2026-09-28)
+
+Doctrine corrected to USMC lineage. Commander's Intent doctrine comes from the U.S. Marine Corps. Doctrine developed with Shag's father, a retired U.S. Marine Corps Colonel, call signs "Grizzly" and "Maverick". v0.2.0 wrongly grounded it in another service's publications; every such reference is removed.
+
+### Changed
+- **`COMMANDERS-INTENT.md`** sections 1 and 2 rebuilt on Marine Corps doctrine: MCDP 1, *Warfighting* (mission as task plus intent, intent predominant, mission tactics, main effort, initiative within intent, trust); MCDP 6, *Command and Control* (implicit communication); MCDP 5, *Planning*; MCWP 5-10, *Marine Corps Planning Process* (definition of commander's intent). Intent is now written as purpose, method, end state, with key tasks and the main effort as the method. Adds the leadership habits from Jon T. Hoffman's *Chesty* and a doctrine sources table. Header gains a doctrine lineage line.
+- Section 6 is now "Method: key tasks and main effort"; section 12 is now "Initiative within intent"; the order template's `KEY TASKS` line is now `METHOD` (key tasks; name the main effort). The slots are unchanged, so filled intents stay valid.
+- Acting on your own when the plan breaks is now called "initiative within intent", after MCDP 1, in `README.md`, `FABRIC.md`, `skills/commanders-intent`, and `skills/fleet-stand-up-runbook`. Section heading updated to match in `examples/commanders-intent-example.md` and `interview/commanders-intent-interview.md`.
+- `README.md`: commander's intent described as the U.S. Marine Corps practice from MCDP 1; doctrine credit added.
+- `social/x-article-v0.2.md`: opening rewritten on Marine Corps doctrine, with the doctrine credit.
+- `MANIFEST.md` regenerated.
+
 ## v0.2.0 (2026-09-28)
 
 The intent release. Commander's Intent is now a real document at the root of the repo, created by interviewing the Owner, turned into shared fleet memory, and backed by a security policy.
 
 ### Added
-- **`COMMANDERS-INTENT.md`**: the fleet-wide source of truth, shipped as a scaffold. Fixed doctrine grounded in mission command (purpose, key tasks, end state; disciplined initiative; act within intent when the plan breaks), plus slots the Owner fills by interview: purpose, end state at 90 days and one year, key tasks, main effort, keep-alive floors, the one thing never to risk, the never-without-GO list, risk tolerance, spend limit and named spenders, conflict rules, who decides what, chain of command, blocked and drift preferences, communication. Also: moving the ball forward, the decision ladder when blocked, halt conditions, orders that carry intent two levels up, three kinds of authority with one merge owner, drift prevention (version, checksum, wake line, correction loop), verify and fail loud, quota and token discipline, precedence, and amendment rules (only the Owner amends).
+- **`COMMANDERS-INTENT.md`**: the fleet-wide source of truth, shipped as a scaffold. Fixed doctrine on commander's intent (act within intent when the plan breaks; doctrine grounding corrected to U.S. Marine Corps lineage in v0.2.1), plus slots the Owner fills by interview: purpose, end state at 90 days and one year, key tasks, main effort, keep-alive floors, the one thing never to risk, the never-without-GO list, risk tolerance, spend limit and named spenders, conflict rules, who decides what, chain of command, blocked and drift preferences, communication. Also: moving the ball forward, the decision ladder when blocked, halt conditions, orders that carry intent two levels up, three kinds of authority with one merge owner, drift prevention (version, checksum, wake line, correction loop), verify and fail loud, quota and token discipline, precedence, and amendment rules (only the Owner amends).
 - **`interview/commanders-intent-interview.md`**: the Chief of Staff's staged interview (22 questions plus probes), playback, explicit approval as v1.0, and the re-interview and amend flow.
 - **`skills/commanders-intent-interview`**: runs the interview, writes the approved file under `/home/box`, optionally commits it to the Owner's repo with their yes, builds the `commanders-intent` mental model, and notifies the fleet.
 - **`mental-models/commanders-intent.md` and `.json`**: the Hindsight mental model built from the approved intent, scoped by version tag, refreshed on every version bump and weekly.
